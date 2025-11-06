@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--
+      This is the page head - it contains info the browser uses
+      Like the title, which appears on the browser tab but not inside the page
+      Further down you'll see the content that displays in the page
+    -->
+    <title>Mission Bay ES</title>
+
+    <!-- The website stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- The website JavaScript file -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
+    />
+  </head>
+  <body>
+    <!--
+      The body includes the content you see in the page
+      Each element is defined using tags, like this <div></div>
+      The attributes like class="wrapper" let us style elements in the CSS
+    -->
+    <div class="wrapper">
+      <div class="content" role="main">
+        <h1 class="title">Mission Bay Elementary School Transportation Plan</h1>
+        <img-comparison-slider>
+          <img
+            slot="first"
+            width="100%"
+            src="./glitch-assets/mission-bay-1.jpg"
+          />
+          <img
+            slot="second"
+            width="100%"
+            src="./glitch-assets/mission-bay-2.jpg"
+          />
+        </img-comparison-slider>
+
+        <div class="instructions">
+<!--           <h2>Example Content</h2>
+          <p>
+            This page features a <strong>customizable</strong> "before / after"
+            slider to showing existing conditions and proposed conditions, then
+            space below for text, links, video, and other images and project
+            information.
+          </p> -->
+
+          <h2>Video Tour</h2>
+          <video controls width="80%">
+            <source
+              src="./glitch-assets/proposed-fpv720.mov"
+            />
+          </video>
+          <h2>Scene Source Links</h2>
+          <ul>
+            <li>
+              <a
+                href="https://3dstreet.app/#/scenes/119fc08e-d249-4c2f-8a96-1e11c7283542.json"
+                >Current Conditions - 3DStreet Scene</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://3dstreet.app/#/scenes/43263621-9cc3-42a5-be60-cf07f6527824"
+                >Proposed Conditions - 3DStreet Scene</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // This script block will wait until the DOM is fully loaded before running
+    document.addEventListener("DOMContentLoaded", function () {
+      const beforeAfterElement = document.querySelector(".beforeafter");
+      // Ensure that BeforeAfter is defined (it should be, thanks to the defer attribute on the script tag)
+      if (window.BeforeAfter && beforeAfterElement) {
+        const slider = new window.BeforeAfter(beforeAfterElement, {
+          // You can customize options here
+          cursor: true, // Show the slider cursor
+          orientation: "horizontal", // Orientation of the slider
+          start: 50, // Starting position of the slider, in percentage
+        });
+      }
+    });
+  </script>
+</html>
